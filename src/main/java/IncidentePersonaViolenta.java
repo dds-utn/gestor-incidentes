@@ -1,17 +1,14 @@
+import java.time.LocalDateTime;
 
-public class IncidentePersonaViolenta implements TipoIncidente {
+public class IncidentePersonaViolenta {
 
-	private Persona persona;
+  private Persona persona;
 
-	@Override
-	public void notificarRegistro(ObserverRegistro observer) {
-		observer.notificarPersonaViolenta(persona);
-	}
+  public IncidentePersonaViolenta(Persona persona) {
+    this.persona = persona;
+  }
 
-	public void setPersona(Persona persona) {
-		this.persona = persona;
-	}
-	
-	
-
+  public Persona getPersona() {
+    return persona;
+  }
 }
