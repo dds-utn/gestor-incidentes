@@ -3,9 +3,15 @@ import java.util.List;
 
 public class GestorDeIncidentes {
 
-  public List<IncidentePersonaViolenta> incidentes = new ArrayList<IncidentePersonaViolenta>();
+  private List<IncidentePersonaViolenta> incidentes = new ArrayList<IncidentePersonaViolenta>();
 
-  public List<ObservadorIncidentes> observadores = new ArrayList<>();
+  private List<ObservadorIncidentes> observadores = new ArrayList<>();
+
+  private FuenteDeIncidentes fuenteDeIncidentes;
+  
+  public GestorDeIncidentes(FuenteDeIncidentes fuenteDeIncidentes) {
+    this.fuenteDeIncidentes = fuenteDeIncidentes;
+  }
 
   public void registrarIncidentePersonaViolenta(IncidentePersonaViolenta incidente) {
     incidentes.add(incidente);
@@ -21,6 +27,13 @@ public class GestorDeIncidentes {
   public void agregarObservador(
       ObservadorIncidentes observador) {
     observadores.add(observador);
+  }
+
+
+
+  public void actualizarIncidentes() {
+    registrarIncidentePersonaViolenta(
+        fuenteDeIncidentes.obtenerNuevoIncidentePersonaViolenta());
   }
 
 }

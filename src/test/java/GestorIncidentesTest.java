@@ -6,9 +6,22 @@ import org.junit.Test;
 
 public class GestorIncidentesTest {
   
+  
+  @Test
+  public void puedoIrABuscarIncidentes() {
+    FuenteDeIncidentes fuenteIncidentes = ???;
+    GestorDeIncidentes gestor = 
+        new GestorDeIncidentes(fuenteIncidentes);
+
+    
+    gestor.actualizarIncidentes();
+    
+  }
+
+  
   @Test
   public void siNotificoDeUnaPersonaViolentaYNoHayObservadoresNoRompe() {
-    GestorDeIncidentes gestor = new GestorDeIncidentes();
+    GestorDeIncidentes gestor = new GestorDeIncidentes(fuenteIncidentes);
     IncidentePersonaViolenta incidente = 
         new IncidentePersonaViolenta(
             new Persona("rodolfo", "caputo", "12222222"));
@@ -19,7 +32,7 @@ public class GestorIncidentesTest {
 
   @Test
   public void siNotificoDeUnaPersonaViolentaYHayUnaBlackListLaNotifica() {
-    GestorDeIncidentes gestor = new GestorDeIncidentes();
+    GestorDeIncidentes gestor = new GestorDeIncidentes(fuenteIncidentes);
     IncidentePersonaViolenta incidente = 
         new IncidentePersonaViolenta(
             new Persona("rodolfo", "caputo", "12222222"));
